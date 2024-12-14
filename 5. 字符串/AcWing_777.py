@@ -21,3 +21,16 @@ def max_repetition(s):
     lps = compute_lps(s)
     n = len(s)
     len_lps = lps[-1]
+
+    if len_lps == 0 or n % (n - len_lps) != 0:
+        return 1
+    else:
+        return n // (n - len_lps)
+
+
+if __name__ == "__main__":
+    while True:
+        s = input().strip()
+        if s == ".":
+            break
+        print(max_repetition(s))
